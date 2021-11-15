@@ -1,18 +1,28 @@
 from turtle import Turtle, Screen
+import turtle
+import random
 
 tim = Turtle()
+turtle.colormode(255)
+tim.speed('fastest')
+tim.pensize(15)
 
-def draw_shape(num_sides):
-    angle = 360 / num_sides
-    for i in range(num_sides):
-        tim.right(angle)
-        tim.forward(100)
 
-draw_shape(4)
-draw_shape(5)
-draw_shape(6)
-draw_shape(7)
-draw_shape(8)
+directions = [0, 90, 180, 270]
+
+
+def turtle_walk():
+    for i in range(2500):
+        r = random.randint(0, 255)
+        g = random.randint(0, 255)
+        b = random.randint(0, 255)
+        random_color = (r, g, b)
+        tim.color(random_color)
+        tim.forward(10)
+        tim.setheading(random.choice(directions))
+
+
+turtle_walk()
 
 screen = Screen()
 screen.exitonclick()
