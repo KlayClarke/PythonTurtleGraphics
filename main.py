@@ -4,25 +4,23 @@ import random
 
 tim = Turtle()
 turtle.colormode(255)
-tim.speed('fastest')
-tim.pensize(15)
+turtle.speed('fastest')
 
 
-directions = [0, 90, 180, 270]
-
-
-def turtle_walk():
-    for i in range(2500):
+def draw_spirograph(size_of_gap):
+    n = 0
+    for i in range(int(360 / size_of_gap)):
         r = random.randint(0, 255)
         g = random.randint(0, 255)
         b = random.randint(0, 255)
         random_color = (r, g, b)
-        tim.color(random_color)
-        tim.forward(10)
-        tim.setheading(random.choice(directions))
+        turtle.color(random_color)
+        turtle.circle(100)
+        turtle.setheading(n)
+        n += size_of_gap
 
 
-turtle_walk()
+draw_spirograph(2)
 
 screen = Screen()
 screen.exitonclick()
